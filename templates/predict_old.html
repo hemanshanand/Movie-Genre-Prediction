@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/main_hem.css') }}">
+		<title>MGP</title>
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+			
+			/* Create two unequal columns that floats next to each other */
+			.column {
+			  float: left;
+			  padding: 50px;
+			  /* height: 300px; Should be removed. Only for demonstration */
+			}
+			
+			.left {
+			  width: 50%;
+			}
+			
+			.right {
+			  width: 50%;
+			}
+			
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+	
+	<body class="subpage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Logo -->
+								<h1><a href="index.html" id="logo">Movie Genre Prediction</a></h1>
+
+								<!-- Nav -->
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+									</nav>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+			<!-- Content -->
+				<section id="content">
+					<!-- <div class="container">
+						<div class="row">
+							<div class="col-9 col-12-medium"> -->
+
+					<div class="row">
+						<div class="column" style="background-color:#aaa;">
+							<h2>Welcome to our Natural Language Processing Coursework.</h2>
+							<h3>Please enter the plot of the movie</h3>
+							<form action="" class="form-inline" method="post">
+								<textarea rows="12" cols="100" type="textarea" class="form-control" placeholder = "{{ my_string }}" name="plot" value="{{request.form.plot}}" >{% if my_string %}{{ my_string }}{% else %}Movie Plot Here{% endif %}</textarea>
+								<br /><br />
+								<input class="btn" type="submit" value="Get Prediction">
+							<br />
+							</form>
+							<br />		
+						</div>
+
+						<div class="column" style="background-color:#bbb;">
+							<h2>Output</h2>
+							{% if results %}
+							<!-- <div class="results"> -->
+							{% for g in results %}
+								<!-- <div class="genre_block"> -->
+									<div class="genre_name">{{g[1]}}</div>
+									<div class="genre_score">{{g[0]}} %</div>
+								<br />
+								<!-- </div> -->
+
+							{% endfor %}
+							<!-- </div> -->
+							{% endif %}
+						</div>
+					
+					</div>
+					{% if error %}<p>{{error}}</p>{% endif %}
+
+
+			<!-- Copyright -->
+				<div id="copyright">
+					&copy; Group Number. All rights reserved.</a>
+				</div>
+	</body>
+</html>

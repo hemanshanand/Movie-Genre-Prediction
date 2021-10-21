@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/main_hem.css') }}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<title>MGP</title>
+		<style>
+			body{
+				background-color: #e9d5c8;
+			}
+			img {
+				position: absolute;
+				left: 150px;
+			}
+			<!-- * { -->
+			  <!-- box-sizing: border-box; -->
+			<!-- } -->
+			
+			<!-- /* Create two unequal columns that floats next to each other */ -->
+			<!-- .column { -->
+			  <!-- float: left; -->
+			  <!-- padding: 50px; -->
+			  <!-- /* height: 300px; Should be removed. Only for demonstration */ -->
+			<!-- } -->
+			
+			<!-- .left { -->
+			  <!-- width: 50%; -->
+			<!-- } -->
+			
+			<!-- .right { -->
+			  <!-- width: 50%; -->
+			<!-- } -->
+			
+			<!-- /* Clear floats after the columns */ -->
+			<!-- .row:after { -->
+			  <!-- content: ""; -->
+			  <!-- display: table; -->
+			  <!-- clear: both; -->
+			<!-- } -->
+			</style>
+	</head>
+	
+	<body>
+		<!-- Header -->
+		<div class="jumbotron" style = "background-color: #3d6474; color: white">
+			<h1 class="display-4">Movie Genre Predictor</h1>
+			<p class="lead">This module predicts the movie genre based on the plot as its input.</p>
+			<hr class="my-4">
+			<p>A project made in University of Surrey. Check the university page here: </p>
+			<p class="lead">
+				<a class="btn btn-outline-warning btn-lg" href="https://www.surrey.ac.uk" role="button">University of Surrey Page</a>
+			</p>
+		</div>
+
+		<!-- Content -->
+			<div class="row" >
+				<div class = "col-md" >
+					<form style = "margin-left: 20px; width: 960px;" action="" method="post">
+						<div class = "form-group">
+							<label for = "FormControlText"><h1 class="display-6" style = "color : #9000B3">Welcome ! Feel free to get started.</h1></label>
+							<textarea rows="12" cols="100" type="textarea" style= "background-color: #A6A76B; color: white;" class="form-control" placeholder = "Enter Movie Plot here" name="plot" value="{{request.form.plot}}" ></textarea>
+						</div>
+						<br /><br />
+						<button type="submit" value = "Get predictiojn" class="btn btn-lg btn-outline-danger btn-block">Get Prediction</button>
+					<br/>
+					</form>
+				</div>
+				<div class = "col-sm" id = "scroll-image">
+					<img src = "http://pngimg.com/uploads/darth_vader/darth_vader_PNG28.png"  height = "500" width = "700" class = "test" />
+				</div>
+				<br/>		
+			</div>
+		{% if results %}
+		<div class="card" style= "background-color: #BE4A4F">
+			<h1 class = "display-4" style = "color : white; margin-left: 20px;">Output</h2>
+			<table class="table table-hover">
+				<thead class = "thead-dark">
+					<tr>
+						<th scope="col">Genre</th>
+						<th scope="col">Score</th>
+					</tr>
+				</thead>
+				{% for g in results %}
+				<tbody>
+					<tr>
+						<td>{{g[1]}}</td>
+						<td>{{g[0]}} %</td>
+					</tr>
+			  </tbody>
+			  {% endfor %}
+			</table>
+		</div>
+		{%endif%}
+		
+		{% if error %}<p>{{error}}</p>{% endif %}
+
+	<!-- Copyright -->
+		<div class="card text-center" style = "background-color: #DBAFB2">
+			<div class="card-header">
+				&copy; Group Number. All rights reserved.
+			</div>
+			<div class="card-body">
+			<blockquote class="blockquote mb-0">
+			  <p>“This is the end, my friend. Thank you for calling.”</p>
+			  <footer class="blockquote-footer">Fisher Stevens in <cite title="Source Title">The Plague(1992)</cite></footer>
+			</blockquote>
+		  </div>
+		</div>
+	</body>
+</html>
