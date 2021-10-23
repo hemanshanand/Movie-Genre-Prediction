@@ -4,9 +4,9 @@
 
 ### Hemansh Anand
 
-**DEMO**: (deploy and add the website link here)
+**DEMO**: https://movie-genre-pred.herokuapp.com/
 
-<a href="(deploy and add the website link here)" target="_blank"><img src="images/app2.png" alt="MGP"></a>
+<a href="https://movie-genre-pred.herokuapp.com/" target="_blank"><img src="images/app2.png" alt="MGP"></a>
 
 ---
 
@@ -62,7 +62,7 @@ Similar to how the model is fitted one genre at a time, the results in the chart
 
 ### Demo with Flask
 
-While outside the scope of my initial goal, I wanted a fun way of demonstrating my model to the public on demo day. I created a Flask app where a user can input text (a plot summary) and the model will predict the genres most associated with that input text. All of the demo code is include in this project, and is temporarily available to demo here: (deploy and add the website link here)
+While outside the scope of my initial goal, I wanted a fun way of demonstrating my model to the public on demo day. I created a Flask app where a user can input text (a plot summary) and the model will predict the genres most associated with that input text. All of the demo code is include in this project, and is temporarily available to demo here: https://movie-genre-pred.herokuapp.com/
 
 
 ### Next Steps
