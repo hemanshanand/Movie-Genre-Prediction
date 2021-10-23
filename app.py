@@ -5,8 +5,8 @@ import joblib
 import pandas as pd
 from flask import Flask, render_template, request
 # NLTK Packages
-# import nltk
-# nltk.download()
+import nltk
+nltk.download()
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
